@@ -154,3 +154,13 @@ object.push({ name: "doggo" });
 console.log(object);
 
 console.log(object.length);
+
+for (let i = 0; i < object.length; i++) {
+  console.log(object[i]);
+}
+
+let j = 0;
+while (j < object.length) {
+  console.log(object[j]);
+  j++;
+}
