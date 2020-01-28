@@ -143,3 +143,14 @@ const numbers2 = {
 console.log(numbers2.sum);
 numbers2.a = 5;
 console.log(numbers2.sum);
+
+const array = [1, 2, 3, 4, 5];
+console.log(array);
+
+const object = [{ name: "pooper" }, { name: "chonkster" }];
+console.log(object);
+
+object.push({ name: "doggo" });
+console.log(object);
+
+console.log(object.length);
