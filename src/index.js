@@ -164,3 +164,52 @@ while (j < object.length) {
   console.log(object[j]);
   j++;
 }
+
+let isFun = false;
+let num = 0;
+while (isFun == false) {
+  console.log("not fun");
+  num++;
+  if (num > 10) {
+    isFun = true;
+    console.log("is fun");
+  }
+}
+
+const numbersArray = [1, 2, 3, 4, 5];
+for (let numb of numbersArray) {
+  console.log(numb);
+}
+
+const catto = {
+  name: "miao",
+  sound: "miaaaaao",
+  age: 3
+};
+console.log(Object.entries(catto));
+console.log(Object.keys(catto));
+console.log(Object.values(catto));
+
+for (let key in catto) {
+  console.log(`${key} : ${catto[key]}`);
+}
+
+for (let k = 0; k < 15; k++) {
+  if (k == 2) {
+    continue;
+  }
+  console.log(k);
+  if (k == 9) {
+    break;
+  }
+}
+
+const num1 = [1, 2, 3, 4, 5, 6, 7];
+for (let nub of num1) {
+  console.log(nub); //1,2,3,4,5,6,7
+}
+
+const num2 = [1, 2, 3, 4, 5, 6, 7];
+for (let nub2 in num2) {
+  console.log(nub2); //0,1,2,3,4,5,6
+}
