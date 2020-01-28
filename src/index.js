@@ -68,3 +68,78 @@ const hello2 = name2 => {
   console.log(`Hello ${name2}`);
 };
 hello2("irerin");
+
+const dog = {
+  name: "pups",
+  sound: "woof",
+  say: function() {
+    console.log(this.sound);
+  }
+};
+
+dog.say();
+
+const cat = {
+  name: "chonkster",
+  sound: "what"
+};
+
+cat.say = dog.say;
+cat.say();
+
+const numbers = {
+  a: 1,
+  b: 2,
+  get sum() {
+    console.log("sum function activated!");
+    return this.a + this.b;
+  }
+};
+
+console.log(numbers.sum);
+numbers.b = 5;
+console.log(numbers.sum);
+
+const doggo = {
+  _name: "pupper",
+  get name() {
+    console.log("yo name?");
+    return this._name;
+  },
+  set name(value) {
+    console.log("name change");
+    this._name = value;
+  }
+};
+
+console.log(doggo.name);
+doggo.name = "gud boi";
+console.log(doggo.name);
+
+const numbers2 = {
+  _a: 1,
+  _b: 2,
+  sum: 3,
+  calculate() {
+    console.log("calculate");
+    this.sum = this._a + this._b;
+  },
+  get a() {
+    return this._a;
+  },
+  get b() {
+    return this._b;
+  },
+  set a(value) {
+    this._a = value;
+    this.calculate();
+  },
+  set b(value) {
+    this._b = value;
+    this.calculate();
+  }
+};
+
+console.log(numbers2.sum);
+numbers2.a = 5;
+console.log(numbers2.sum);
