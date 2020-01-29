@@ -278,3 +278,20 @@ console.log(todoFind);
 
 const todoFind2 = todos.find(todo => todo.text === "javascript");
 console.log(todoFind2);
+
+const tasksNotFinished = todos.filter(todo => !todo.done);
+console.log(tasksNotFinished);
+
+//splice는 기존의 배열을 수정한다.
+const spliceArray = [1, 2, 3, 4, 5, 6, 7];
+const indexSplice = spliceArray.indexOf(5);
+const spliced = spliceArray.splice(indexSplice);
+console.log(indexSplice);
+console.log(spliceArray);
+console.log(`spliced ${spliced}`);
+
+//slice는 기존의 배열을 건드리지 않는다.
+const sliceArray = [1, 2, 3, 4, 5, 6, 7];
+const sliced = sliceArray.slice(0, 2);
+console.log(sliced);
+console.log(sliceArray);
