@@ -322,3 +322,25 @@ console.log(arr2);
 
 const arr = [1, 2, 3, 4, 5];
 console.log(arr.join()); //parameter는 separator를 지정할 수 있다.
+
+const numbers3 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const sum3 = numbers3.reduce((accumulator, current, index, array) => {
+  if (index === array.length - 1) {
+    return (accumulator + current) / array.length;
+  }
+  return accumulator + current;
+});
+//0은 초기 accumulator값, accumulator는 누적된 값, current는 각 원소를 가리키는 값
+// 각 원소가 몇번째인지 알려주는 index, array는 함수를 실행하고 있는 자신을 가리키는 array
+console.log(sum3);
+
+const alphabets = ["a", "a", "a", "e", "b", "d", "a", "b"];
+const counts = alphabets.reduce((acc, current) => {
+  if (acc[current]) {
+    acc[current] += 1;
+  } else {
+    acc[current] = 1;
+  }
+  return acc;
+}, {});
+console.log(counts);
