@@ -213,3 +213,15 @@ const num2 = [1, 2, 3, 4, 5, 6, 7];
 for (let nub2 in num2) {
   console.log(nub2); //0,1,2,3,4,5,6
 }
+
+const fruits = ["apple", "orange", "melon", "pear", "banana", "strawberry"];
+
+function print(fruit) {
+  console.log(fruit);
+}
+fruits.forEach(print);
+
+//더 깔끔하게 화살표 함수를 사용
+fruits.forEach(fruit => {
+  console.log(fruit);
+});
