@@ -295,3 +295,30 @@ const sliceArray = [1, 2, 3, 4, 5, 6, 7];
 const sliced = sliceArray.slice(0, 2);
 console.log(sliced);
 console.log(sliceArray);
+
+const newNumbers = [1, 2, 3, 4, 5, 6, 7, 8];
+
+const value1 = newNumbers.shift(); //맨 앞의 원소를 밖으로 꺼낸다.
+console.log(value1);
+console.log(newNumbers);
+
+const value2 = newNumbers.pop(); // 맨 뒤의 원소를 밖으로 꺼낸다.
+console.log(value2);
+console.log(newNumbers);
+
+newNumbers.unshift(12); // 맨 앞부분에 원소를 추가한다
+console.log(newNumbers);
+
+newNumbers.push(25); // 맨 뒷부분에 원소를 추가한다.
+console.log(newNumbers);
+
+const arr1 = [1, 2, 3];
+const arr2 = [4, 5, 6];
+
+const arr3 = arr1.concat(arr2); //기존 배열을 수정하지 않고 배열을 합친다.
+console.log(arr3);
+console.log(arr1);
+console.log(arr2);
+
+const arr = [1, 2, 3, 4, 5];
+console.log(arr.join()); //parameter는 separator를 지정할 수 있다.
