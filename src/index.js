@@ -382,3 +382,39 @@ const newCat = new Cat("chonkster", "whattt");
 
 newDog.say();
 newCat.say();
+
+class AnimalClass {
+  constructor(type, name, sound) {
+    this.type = type;
+    this.name = name;
+    this.sound = sound;
+  }
+  //자동으로 prototype으로 설정이 된다.
+  say() {
+    console.log(this.sound);
+  }
+}
+
+const dogClass = new Animal("dog", "woot", "woooot");
+const catClass = new Animal("cat", "caat", "caaaaaaaat");
+
+dogClass.say();
+catClass.say();
+
+class DogDog extends Animal {
+  constructor(name, sound) {
+    super("dog", name, sound);
+  }
+}
+
+class CatCat extends Animal {
+  constructor(name, sound) {
+    super("cat", name, sound);
+  }
+}
+
+const doog = new DogDog("doggy", "woooof");
+const caat = new CatCat("catto", "waaaaaaaa");
+
+doog.say();
+caat.say();
