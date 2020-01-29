@@ -225,3 +225,56 @@ fruits.forEach(print);
 fruits.forEach(fruit => {
   console.log(fruit);
 });
+
+const items = [
+  {
+    id: 1,
+    text: "hi"
+  },
+  {
+    id: 2,
+    text: "hello"
+  }
+];
+
+const before = [1, 2, 3, 4, 5, 6, 7, 8];
+const square = before.map(n => n * n);
+console.log(square);
+
+const text = items.map(item => item.text);
+console.log(text);
+
+const index = fruits.indexOf("banana");
+console.log(index);
+
+const todos = [
+  {
+    id: 1,
+    text: "javascript",
+    done: true
+  },
+  {
+    id: 2,
+    text: "javascript function",
+    done: true
+  },
+  {
+    id: 3,
+    text: "javascript objct",
+    done: true
+  },
+  {
+    id: 4,
+    text: "javascript array function",
+    done: false
+  }
+];
+
+const todoIndex = todos.findIndex(todo => todo.id === 2);
+console.log(todoIndex);
+
+const todoFind = todos.find(todo => todo.id === 3); //객체를 반환
+console.log(todoFind);
+
+const todoFind2 = todos.find(todo => todo.text === "javascript");
+console.log(todoFind2);
