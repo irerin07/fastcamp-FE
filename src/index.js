@@ -344,3 +344,41 @@ const counts = alphabets.reduce((acc, current) => {
   return acc;
 }, {});
 console.log(counts);
+
+function Animal(type, name, sound) {
+  this.type = type;
+  this.name = name;
+  this.sound = sound;
+  // 새로운 객체가 만들어질때마다 같은 내용의  say함수가 계속 만들어진다.
+  // this.say = function() {
+  //   console.log(this.sound);
+  // };
+}
+
+//객체 생성자로 생성한 객체들간 공동으로 공유하는 함수 혹은 값을 설정할 수 있다.
+Animal.prototype.say = function() {
+  console.log(this.sound);
+};
+
+const dogg = new Animal("dog", "pooper", "woof");
+dogg.say();
+const catt = new Animal("cat", "catto", "what");
+catt.say();
+
+function Dog(name, sound) {
+  //this 해당 객체 생성자에서의 this를 넣어준다.
+  Animal.call(this, "dog", name, sound);
+}
+
+function Cat(name, sound) {
+  Animal.call(this, "dog", name, sound);
+}
+
+Dog.prototype = Animal.prototype;
+Cat.prototype = Animal.prototype;
+
+const newDog = new Dog("shibe", "wow");
+const newCat = new Cat("chonkster", "whattt");
+
+newDog.say();
+newCat.say();
