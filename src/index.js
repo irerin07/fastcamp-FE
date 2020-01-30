@@ -167,7 +167,7 @@ while (j < object.length) {
 
 let isFun = false;
 let num = 0;
-while (isFun == false) {
+while (isFun === false) {
   console.log("not fun");
   num++;
   if (num > 10) {
@@ -195,11 +195,11 @@ for (let key in catto) {
 }
 
 for (let k = 0; k < 15; k++) {
-  if (k == 2) {
+  if (k === 2) {
     continue;
   }
   console.log(k);
-  if (k == 9) {
+  if (k === 9) {
     break;
   }
 }
@@ -443,3 +443,5 @@ chicken.addBrand("BBQ");
 
 pizza.print();
 chicken.print();
+
+console.log("test");
