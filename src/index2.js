@@ -196,3 +196,136 @@ const extracted = {
 console.log(extracted);
 
 //spread, rest
+const slime = {
+  name: "slimey"
+};
+
+const mySlime = {
+  // name: 'slimey',
+  ...slime,
+  attribute: "mine"
+};
+
+const myRedSlime = {
+  // name:'slimey',
+  // attribute: 'mine',
+  ...mySlime,
+  color: "red"
+};
+const myBlackSlime = {
+  // name:'slimey',
+  // attribute: 'mine',
+  ...myRedSlime,
+  color: "black"
+};
+
+console.log(slime);
+console.log(mySlime);
+console.log(myRedSlime);
+console.log(myBlackSlime);
+
+const wild = ["dog", "cat"];
+const moreWild = [...wild, "koala", ...wild];
+console.log(moreWild);
+
+const { color, ...rest } = myBlackSlime; //color를 제외한 나머지를 rest에 저장
+console.log(color);
+console.log(rest);
+
+const num = [1, 2, 3, 4, 5, 6, 7];
+const [alpha, bravo, charlie, ...res] = num;
+console.log(res);
+
+//함수 파라미터의 rest
+function sum(...rest) {
+  return rest.reduce((acc, current) => acc + current, 0);
+}
+console.log(sum(1, 2, 3, 4, 5, 6, 7));
+
+//함수 인자에서의 spread
+function subtract(x, y) {
+  //x 와 y는 파라미터
+  return x - y;
+}
+const subNums = [1, 2];
+const result = subtract(...subNums);
+console.log(result);
+//12 와 13은 인자
+
+//scope.
+//scope - 변수 함수를 선언할 때 유효한 범위를 의미한다.
+//global - 전역변수. 코드의 모든 범위에서 사용 가능
+//function - 특정 함수 내부에서만 사용 가능
+//block - if for와 같이 중괄호로 감싸진 block내부에서만 사용 가능
+
+const value1 = "hello";
+
+function myFunction() {
+  console.log(value1); //전역변수 value1을 가리킨다.
+}
+function myAnotherFunction() {
+  const value1 = "bye"; //이 함수 내부에서만 유효한 value1
+  console.log(value1);
+}
+
+myFunction();
+myAnotherFunction();
+console.log(`global scope: ${value1}`);
+
+function myNewFunction() {
+  const value = "bye!";
+  const anotherValue = "world";
+  function functionInside() {
+    console.log("functionInside: ");
+    console.log(value);
+    console.log(anotherValue);
+  }
+  functionInside();
+}
+
+myNewFunction();
+console.log("global scope: ");
+console.log(value1);
+// console.log(anotherValue); anothervalue는 함수 스코프 내부에 있기 때문에 함수 외부에서는 사용할 수 없다.
+
+function myNewIfFunction() {
+  const value1 = "bye!";
+  if (true) {
+    const value1 = "world";
+    console.log("block scope: ");
+    console.log(value1);
+  }
+  console.log("function scope: ");
+  console.log(value1);
+}
+
+myNewIfFunction();
+console.log("global scope: ");
+console.log(value1);
+
+//var를 사용하는 경우
+function myVarFunction() {
+  var value1 = "bye!";
+  if (true) {
+    var value1 = "world";
+    console.log("block scope: ");
+    console.log(value1);
+  }
+  console.log("function scope: ");
+  console.log(value1);
+}
+
+myVarFunction();
+console.log("global scope: ");
+console.log(value1);
+
+//hoisting - 아직 선언되지 안흔 함수, 변수를 끌어올려서 사용하는것
+
+myHoistFunction();
+
+function myHoistFunction() {
+  console.log("myHoistFunction");
+}
+//let과 const가 호이스팅이 되지 않는게 아니라
+//호이스팅은 되지만 변수생성과정이 달라서 일시적인 사각지대(TDZ)가 생성되어
+//초기화전엔 액세스할수 없다
