@@ -77,3 +77,122 @@ console.log(false || true);
 console.log(false || null);
 console.log(true || false);
 console.log(true || "such wow");
+
+//함수의 기본 파라미터
+const calculateCircleArea = (r = 1) => {
+  // const radius = r || 1;
+  return Math.PI * r * r;
+};
+
+const area = calculateCircleArea();
+console.log(area);
+
+//조건문 조금 더 깔끔하게 사용하기
+// function isAnimal(text) {
+//   // return (
+//   //   text === 'cat' || text === 'dog' || text === 'parrot'
+//   // )
+//   const animals = ['cat', 'dog', 'parrot'];
+//   return animals.includes(text);
+// }
+
+const isAnimal = text => ["cat", "dog", "parrot"].includes(text);
+
+console.log(isAnimal("parrot"));
+console.log(isAnimal("laptop"));
+
+function makeSound(animal) {
+  // if (animal === "dog") return "woof";
+  // if (animal === "cat") return "what";
+  // if (animal === "chicken") return "chicken attack";
+  // if (animal === "pigeon") return "9999999";
+  // return "....?";
+
+  // const sounds = {
+  //   dog: "woof",
+  //   cat: "what",
+  //   chicken: "chicken attack",
+  //   pigeon: "999999"
+  // };
+  // return sounds[animal] || "....?";
+
+  const tasks = {
+    dog: () => {
+      console.log("woof");
+    },
+    cat: () => {
+      console.log("what");
+    },
+    chicken: () => {
+      console.log("chicken attack");
+    },
+    pigeon: () => {
+      console.log("999999");
+    }
+  };
+
+  const task = tasks[animal];
+
+  if (!tasks[animal]) {
+    console.log("...?");
+    return;
+  }
+  task();
+}
+
+// console.log(getSound("dog"));
+// console.log(getSound("hooman"));
+
+makeSound("chicken");
+
+//비구조화 할당
+const object = { a: 1, b: 2, c: 3 };
+
+const { a, b, c } = object;
+
+console.log(a);
+
+const fruit = {
+  name: "apple"
+};
+const { name: nickname } = fruit;
+console.log(nickname);
+
+const array2 = [1, 2, 4, 5];
+const [one, two, three = 3] = array;
+console.log(one);
+console.log(three);
+
+const deepObject = {
+  state: {
+    info: {
+      name: "andrew",
+      languages: ["korean", "english"]
+    }
+  },
+  value: 5
+};
+
+// const { name3, languages } = deepObject.state.info;
+// const { value2 } = deepObject;
+
+const {
+  state: {
+    info: {
+      name3,
+      languages: [first, second]
+    }
+  },
+  value2
+} = deepObject;
+
+const extracted = {
+  name, //특정 객체를 만들떄 특정 Key이름으로 선언 된 값이 있다면 value설정을 생략할 수 있다.
+  first,
+  second,
+  value
+};
+
+console.log(extracted);
+
+//spread, rest
